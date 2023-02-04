@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body class="body-dark-mode">
+        <div class="color-scheme-container dark-mode" id="color-scheme-container">
+            <div class="header">
+                <input type="color" class="color-selector" id="color-selector"/>
+                <select name="color-scheme" id="color-scheme-menu" class="color-scheme-menu dark-mode">
+                    <option value="monochrome">Monochrome</option>
+                    <option value="monochrome-dark">Monochrome-dark</option>
+                    <option value="monochrome-light">Monochrome-light</option>
+                    <option value="analogic">Analogic</option>
+                    <option value="complement">Complement</option>
+                    <option value="analogic-complement">Analogic-compliment</option>
+                    <option value="triad">Triad</option>
+                </select>
+                <button class="color-scheme-btn btn-dark-mode" id="color-scheme-btn">Get color scheme</button>
+                <div class="mode-btn" id="mode-btn">
+                    <i class="fa-solid fa-sun"></i>
+                </div>
+            </div>
+            <div class="colors" id="colors"></div>
+            <div class="footer" id="footer"></div>
+        </div>
+        <p class="copy-status copy-dark-mode hidden" id="copy-status">Copied to clipboard</p>
+        <script src="index.js"></script>
+    </body>
+</html>
