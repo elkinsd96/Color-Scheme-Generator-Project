@@ -8,13 +8,18 @@ const colorSelectorEl = document.getElementById("color-selector")
 const colorsEl = document.getElementById("colors")
 const footerEl = document.getElementById("footer")
 const copyStatusEl = document.getElementById("copy-status")
+const colorEl = document.getElementById("color")
 
-function copyToClipboard(e) {
-    navigator.clipboard.writeText(e.target.dataset.hex)
-    copyStatusEl.classList.remove("hidden")
-    setTimeout(() => {
-        copyStatusEl.classList.add("hidden");
-    }, 2000)
+function copyToClipBoard() {
+    for (let p of document.querySelectorAll('p')) {
+        p.addEventListener('click', async () => {
+            await navigator.clipboard.writeText(p.dataset.hex)
+            copyStatusEl.classList.remove("hidden")
+            setTimeout(() => {
+                copyStatusEl.classList.add("hidden");
+            }, 2000)
+        })
+    }
 }
 
 function getColorScheme() {
@@ -25,16 +30,17 @@ function getColorScheme() {
     fetch(`https://www.thecolorapi.com/scheme?hex=${hexValue}&format=json&mode=${modeValue}&count=5`)
         .then(resp => resp.json())
         .then(data => {
-            for(let i = 0; i < 5; i++) {
+            data.colors.forEach((color) => {
                 colorsEl.innerHTML += `
-                <div class="color" id="color" style="background-color:${data.colors[i].hex.value}"></div>
+                <div class="color" id="color" style="background-color:${color.hex.value}"></div>
                 `
                 footerEl.innerHTML += `
                 <div class="hex" id="hex">
-                    <p onclick="copyToClipboard(event)" data-hex="${data.colors[i].hex.value}">${data.colors[i].hex.value}</p>
+                    <p data-hex="${color.hex.value}">${color.hex.value}</p>
                 </div>  
                 `
-            }
+            })
+            copyToClipBoard()
         })
 }
 
@@ -87,4 +93,3 @@ function render() {
 }
 
 render()
-
