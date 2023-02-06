@@ -4,7 +4,7 @@ Color Scheme Generator Project from [Scrimba](https://scrimba.com/learn/frontend
 
 ## Project Link
 
-[Project Link]  Hosted using Netlify 
+[Project Link] https://color-scheme-generator-scrimba.netlify.app/ Hosted using Netlify 
 
 ## Previews
 
